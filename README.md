@@ -2,12 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
-# About
+## About
 
 This project is part of my personal portfolio. Access current weather data for any location on Earth, including over 200,000 cities! We collect and process weather data from various sources, such as global and local weather models, satellites, radars, and a vast network of weather stations. Data is available in JSON, XML, or HTML format. Api: (https://openweathermap.org)
 
-# Get geolocation by browser
+## Get geolocation by browser
 
+```
 geolocation(){
   if (navigator.geolocation) { 
     //check if geolocation is available
@@ -17,10 +18,13 @@ geolocation(){
     });
   }
 }
+```
 
-# Add marker on map
+## Add marker on map
 
+```
 marker([data.lat, data.lon]).addTo(this.map).bindPopup(data.city);
+```
 
 ## Development server
 
