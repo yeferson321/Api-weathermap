@@ -1,0 +1,54 @@
+.body {
+  min-height: 65vh;
+}
+
+.card {
+  background-color: rgb(246, 247, 250);
+  width: max-content;
+}
+
+.text {
+  font-family: "Outfit", sans-serif;
+}
+
+#map {
+  height: 230px;
+}
+
+@media only screen and (max-width: 576px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .body {
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: auto;
+  }
+
+  img {
+    width: 85px;
+  }
+
+  .temp {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    margin-right: 9rem !important;
+    margin-left: 9rem !important;
+  }
+}

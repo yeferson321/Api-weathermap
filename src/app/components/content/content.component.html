@@ -1,0 +1,48 @@
+<app-search (searchWeather)="onChange($event)"></app-search>
+
+<div class="body d-flex align-items-center justify-content-center">
+  <div class="container d-flex gap-5">
+    <div class="weather">
+      <div class="card border-0 bg-transparent">
+        <div class="card-body py-0" *ngIf="result">
+          <div class="d-flex align-items-center">
+            <img src="https://openweathermap.org/img/wn/{{
+                result.weather[0].icon
+              }}@2x.png" width="60px" />
+            <h1 class="mb-0 text temp">
+              {{ result.main.temp | number : "1.0-0" }}°
+            </h1>
+          </div>
+          <h5 class="card-title text fw-semibold">
+            {{ result.name }}, {{ result.sys.country }}
+            <i class="bi bi-geo-alt"></i>
+          </h5>
+          <p class="card-text text mb-1">
+            Sensación térmica {{ result.main.temp | number : "1.0-0" }}°
+            {{ result.weather[0].description }}
+          </p>
+          <p class="card-text text mb-1">
+            Visibilidad: 10.0 km {{ result.wind.speed }} m/s
+          </p>
+          <p class="card-text text mb-1">
+            Humedad: {{ result.main.humidity }}% Presión:
+            {{ result.main.pressure }}%
+          </p>
+          <p class="card-text text mb-1">
+            Temperatura maxima: {{ result.main.temp_max }}°
+            <i class="bi bi-arrow-up-short"></i>
+          </p>
+          <p class="card-text text">
+            Temperatura minima: {{ result.main.temp_min }}°
+            <i class="bi bi-arrow-down-short"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="w-100">
+      <div id="map" class="rounded-5"></div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

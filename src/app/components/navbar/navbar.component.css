@@ -1,0 +1,43 @@
+.navbar {
+  background-color: black;
+}
+
+.navbar-brand {
+  font-family: "Outfit", sans-serif;
+}
+
+.offcanvas-title {
+  font-family: "Outfit", sans-serif;
+}
+
+.nav-link {
+  font-family: "Outfit", sans-serif;
+}
+
+@media only screen and (max-width: 280px) {
+  .offcanvas-header {
+    padding: 16% 0px;
+  }
+
+  .offcanvas {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .offcanvas {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    margin-right: 9rem !important;
+    margin-left: 9rem !important;
+  }
+}

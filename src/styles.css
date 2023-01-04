@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://unpkg.com/leaflet@1.9.3/dist/leaflet.css");
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+* {
+    margin: 0;
+    padding: 0;
+}
