@@ -1,4 +1,4 @@
-.body {
+.section {
   min-height: 65vh;
 }
 
@@ -23,7 +23,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .body {
+  .section {
     margin-top: 20px;
     margin-bottom: 60px;
   }

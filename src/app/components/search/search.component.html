@@ -6,7 +6,7 @@
                     <input type="text" class="form-control" (keydown)="hideList()" placeholder="Busca una ciudad"
                         formControlName="city" required>
                     <ul #list class="list-group">
-                        <li class="list-group-item  option" *ngFor="let data of result" (click)="selectElement(data)">
+                        <li class="list-group-item d-flex border align-items-center justify-content-between border-0" *ngFor="let data of result" (click)="selectElement(data)">
                             <span>{{data.name}}, {{data.country}}</span>
                             <img src="http://openweathermap.org/images/flags/{{ data.country | lowercase }}.png">
                             <span>{{limitDecimals(data.lat)}}</span>
@@ -19,9 +19,7 @@
                     No encontrado. Ponga el nombre de la ciudad
                 </div>
             </div>
-
         </form>
-
         <a class="navbar-brand fw-normal  me-0">Datos meteorológicos actuales</a>
     </div>
 </nav>

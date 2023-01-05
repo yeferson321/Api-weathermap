@@ -6,15 +6,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class WeatherService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
+  /**
+   * This function is used to make a request to the OpenWeatherMap API, passing latitude and longitude
+   * as a query parameter
+   */
   getRequesWeather(lat: number, lon: number) {
-    /**
-     * It returns a promise of a JSON object containing the weather data for the given latitude and
-     * longitude
-     */
     let config: any = { responseType: 'json' };
 
+    /* Setting the query parameters for the request. */
     const params = new HttpParams()
       .set('lat', lat)
       .set('lon', lon)
@@ -25,13 +26,14 @@ export class WeatherService {
     return this.http.get(`${environment.uri}`, config);
   }
 
+  /**
+   * This function is used to make a request to the OpenWeatherMap API, passing in the city name
+   * as a query parameter
+   */
   searchWeather(city: string) {
-    /**
-     * We're using the HttpClient to make a GET request to the OpenWeatherMap API, passing in the city name
-     * as a query parameter, and returning the response as a JSON object
-     */
     let config: any = { responseType: 'json' };
 
+    /* Setting the query parameters for the request. */
     const params = new HttpParams()
       .set('q', city)
       .set('limit', 4)
