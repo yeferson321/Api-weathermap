@@ -2,11 +2,25 @@
 
 <div class="section d-flex align-items-center justify-content-center">
     <div class="container d-flex gap-5">
-        <div class="weather">
-            <div class="card border-0 bg-transparent">
-                <div class="card-body py-0" *ngIf="result">
+        <div class="weathermap">
+            <div class="card border-0 bg-transparent Skeleton-loader" *ngIf="!result">
+                <div class="card-body py-0 d-flex flex-column">
+                    <div class="d-flex align-items-center gap-2">
+                        <ngx-skeleton-loader class="circle" appearance="circle" [theme]="{ width: '38px', height: '38px', 'margin-top': '14px' }"></ngx-skeleton-loader>
+                        <ngx-skeleton-loader [theme]="{ width: '40px', 'border-radius': '5px', height: '15px', 'margin-bottom': '0px' }"></ngx-skeleton-loader>
+                    </div>
+                    <ngx-skeleton-loader [theme]="{ width: '185px', 'border-radius': '5px', height: '15px', 'margin-bottom': '12px' }"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader [theme]="{ width: '262px', 'border-radius': '5px', height: '15px', 'margin-bottom': '7px' }"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader [theme]="{ width: '200px', 'border-radius': '5px', height: '15px', 'margin-bottom': '7px' }"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader [theme]="{ width: '215px', 'border-radius': '5px', height: '15px', 'margin-bottom': '7px' }"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader [theme]="{ width: '210px', 'border-radius': '5px', height: '15px', 'margin-bottom': '7px' }"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader [theme]="{ width: '210px', 'border-radius': '5px', height: '15px', 'margin-bottom': '0px' }"></ngx-skeleton-loader>
+                </div>
+            </div>
+            <div class="card border-0 bg-transparent" *ngIf="result">
+                <div class="card-body py-0">
                     <div class="d-flex align-items-center">
-                        <img src="https://openweathermap.org/img/wn/{{result.weather[0].icon}}@2x.png" width="60px" />
+                        <img src="https://openweathermap.org/img/wn/{{ result.weather[0].icon }}@4x.png" width="60px" />
                         <h1 class="mb-0 text temp">
                             {{ result.main.temp | number : "1.0-0" }}°
                         </h1>
@@ -15,7 +29,7 @@
                         {{ result.name }}, {{ result.sys.country }}
                         <i class="bi bi-geo-alt"></i>
                     </h5>
-                    <p class="card-text text mb-1">
+                    <p class="card-text text mb-1"> 
                         Sensación térmica {{ result.main.temp | number : "1.0-0" }}°
                         {{ result.weather[0].description }}
                     </p>

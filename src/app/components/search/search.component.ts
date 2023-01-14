@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { WeatherService } from '../../services/weather.service';
+import { WeatherService } from 'src/app/services/weather.service';
+import { ClassGeocoding } from 'src/app/models';
 
 @Component({
   selector: 'app-search',
@@ -15,7 +16,7 @@ export class SearchComponent implements OnInit {
   @Output() searchWeather = new EventEmitter<any>();
   /* Declaring the variables that will be used in the component. */
   form!: FormGroup;
-  result: any;
+  result: ClassGeocoding[] = []
   noResults: boolean = false;
   error: string = ""
 
@@ -39,13 +40,13 @@ export class SearchComponent implements OnInit {
    */
   onSubmit(): void {
     if (this.form.valid) {
-      this.weatherservice.searchWeather(this.form.value.city).subscribe({
+      this.weatherservice.getDirectGeocoding(this.form.value.city).subscribe({
         next: (data) => {
           this.validateSearch(data);
         },
         error: (err) => {
-          this.error = err.error.message
-        },
+          this.error = err.error.message;
+        }
       });
     }
   }
@@ -54,7 +55,7 @@ export class SearchComponent implements OnInit {
    * If the search result is not empty, show the list of results and hide the "no results found" message.
    * If the search result is empty, hide the list of results and show the "no results found" message
    */
-  validateSearch(data: any) {
+  validateSearch(data: any): void {
     if (data.length) {
       this.result = data;
       this.renderer.setStyle(this.list.nativeElement, 'display', 'block');
@@ -75,14 +76,14 @@ export class SearchComponent implements OnInit {
   /**
    * "When the user clicks outside of the list, hide the list."
    */
-  hideList() {
+  hideList(): void {
     this.renderer.setStyle(this.list.nativeElement, 'display', 'none');
   }
 
   /**
    * It takes the data from the search input and emits it to the parent component
    */
-  selectElement(data: any) {
+  selectElement(data: any): void {
     this.searchWeather.emit(data);
     /* Setting the display property of the list element to none. */
     this.renderer.setStyle(this.list.nativeElement, 'display', 'none');

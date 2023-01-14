@@ -15,7 +15,7 @@ export class SectionComponent implements OnInit {
   longitude: number = 2.3428;
   city: string = 'Paris, FR';
   /* Setting the default values for the map, result and error. */
-  map: any;
+  map!: Map;
   result: any;
   error: string = ""
 
@@ -44,16 +44,17 @@ export class SectionComponent implements OnInit {
    * get the weather data
    */
   onChange(data: any): void {
-    this.weatherservice.getRequesWeather(data.lat, data.lon).subscribe({
+    this.weatherservice.getCurrentWeather(data.lat, data.lon).subscribe({
       next: (data) => {
         this.result = data;
       },
       error: (err) => {
+        /* It's setting the error message to the error message that we get from the API. */
         this.error = err.error.message
       },
     });
 
     /* Setting the view of the map to the latitude and longitude of the city. */
-    this.map.setView([data.lat, data.lon], 7);
+    this.map.setView([data.lat, data.lon], 8);
   }
 }
