@@ -26,7 +26,9 @@ export class WeatherService {
         .set('units', `${environment.units}`),
     };
 
-    return this.http.get<InterfaceWeather[]>(`${environment.uri}`, config)
+    /* This is a request to the OpenWeatherMap API, passing latitude and longitude as a query
+    parameter. */
+    return this.http.get<InterfaceWeather[]>(`${environment.uri}`, config);
   }
 
   /**
@@ -44,11 +46,13 @@ export class WeatherService {
         .set('appid', `${environment.appid}`),
     };
 
+    /* A request to the OpenWeatherMap API, passing in the city name as a query parameter. */
     return this.http.get<InterfaceGeocoding[]>(`${environment.uriSearch}`, config)
+      /* A pipe that is used to transform the response from the API. */
       .pipe(
         map((resp: InterfaceGeocoding[]) => {
           return resp.map(geocoding => ClassGeocoding.geocodingFromJSON(geocoding))
         })
-      )
+      );
   };
 }

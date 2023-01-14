@@ -1,3 +1,4 @@
+/* It's a class that has a constructor that takes in 5 parameters, and a getter that returns a string. */
 export class ClassGeocoding {
 
   static geocodingFromJSON(obj: any){

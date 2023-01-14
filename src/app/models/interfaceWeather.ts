@@ -1,3 +1,4 @@
+/* Defining the structure of the data that is returned from the API. */
 export interface InterfaceWeather {
   weather: weather[];
   main: main[];
@@ -6,9 +7,11 @@ export interface InterfaceWeather {
   name: string;
 }
 
-interface weather { 
-  description: string;
-  icon: string;
+class weather {
+  constructor(
+    public description: string,
+    public icon: string
+  ) {}
 }
 
 interface main {

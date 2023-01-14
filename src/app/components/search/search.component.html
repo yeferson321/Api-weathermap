@@ -1,4 +1,4 @@
-<nav class="navbar bg-white pt-4 pb-0 border-bottom">
+<nav class="navbar bg-white pt-4 pb-0 border-bottom d-flex justify-content-center">
     <div class="container d-flex align-items-start">
         <form class="form" role="search" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="d-flex flex-column">
@@ -6,7 +6,8 @@
                     <input type="text" class="form-control" (keydown)="hideList()" placeholder="Busca una ciudad"
                         formControlName="city" required>
                     <ul #list class="list-group">
-                        <li class="list-group-item d-flex border align-items-center justify-content-between border-0" *ngFor="let data of result" (click)="selectElement(data)">
+                        <li class="list-group-item d-flex border align-items-center justify-content-between border-0"
+                            *ngFor="let data of result" (click)="selectElement(data)">
                             <span>{{data.nameCountry}}</span>
                             <img src="http://openweathermap.org/images/flags/{{ data.country | lowercase }}.png">
                             <span>{{limitDecimals(data.lat)}}</span>

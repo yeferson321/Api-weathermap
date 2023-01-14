@@ -1,8 +1,6 @@
-footer {
-  padding-bottom: 25px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.footer {
+  padding: 3em;
+  height: 120px;
 }
 
 .circle-link {
@@ -30,8 +28,8 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-  footer {
-    position: relative;
+  .footer {
+    height: 200px;
   }
 
   .container {

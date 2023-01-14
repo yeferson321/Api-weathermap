@@ -1,3 +1,4 @@
+/* Defining an interface. */
 export interface InterfaceGeocoding {
     country: string;
     lat: number;

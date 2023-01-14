@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Map, tileLayer } from 'leaflet';
 import { WeatherService } from 'src/app/services/weather.service';
+import { InterfaceGeocoding } from 'src/app/models';
 
 @Component({
   selector: 'app-section',
@@ -9,11 +10,11 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class SectionComponent implements OnInit {
   /* A decorator that allows us to pass data from the parent component to the child component. */
-  @Input() data: any;
+  @Input() data!: InterfaceGeocoding;
   /* Setting the default values for the latitude, longitude and city. */
   latitude: number = 48.8584;
   longitude: number = 2.3428;
-  city: string = 'Paris, FR';
+  country: string = 'Paris, FR';
   /* Setting the default values for the map, result and error. */
   map!: Map;
   result: any;
@@ -36,15 +37,16 @@ export class SectionComponent implements OnInit {
     }).addTo(this.map);
 
     /* Calling the onChange method with the default values. */
-    this.onChange({ city: this.city, lat: this.latitude, lon: this.longitude });
+    this.onChange({ country: this.country, lat: this.latitude, lon: this.longitude, name: '', state: '' });
   }
 
   /**
    * The function takes the latitude and longitude of the city and passes it to the weather service to
    * get the weather data
    */
-  onChange(data: any): void {
+  onChange(data: InterfaceGeocoding): void {
     this.weatherservice.getCurrentWeather(data.lat, data.lon).subscribe({
+      /* It's setting the result to the data that we get from the API. */
       next: (data) => {
         this.result = data;
       },

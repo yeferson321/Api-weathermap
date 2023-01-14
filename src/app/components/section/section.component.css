@@ -1,5 +1,9 @@
 .section {
-  min-height: 65vh;
+  min-height: 85vh;
+}
+
+.container {
+  flex: 1 1;
 }
 
 .card {
@@ -23,14 +27,10 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .section {
-    margin-top: 20px;
-    margin-bottom: 60px;
-  }
-
   .container {
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
   }
 
   .card {

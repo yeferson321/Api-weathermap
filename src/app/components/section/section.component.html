@@ -1,9 +1,9 @@
 <app-search (searchWeather)="onChange($event)"></app-search>
 
-<div class="section d-flex align-items-center justify-content-center">
-    <div class="container d-flex gap-5">
+<div class="section d-flex align-items-center justify-content-center flex-column">
+    <div class="container d-flex align-items-center justify-content-center gap-5">
         <div class="weathermap">
-            <div class="card border-0 bg-transparent Skeleton-loader" *ngIf="!result">
+            <div class="card border-0 bg-transparent" *ngIf="!result">
                 <div class="card-body py-0 d-flex flex-column">
                     <div class="d-flex align-items-center gap-2">
                         <ngx-skeleton-loader class="circle" appearance="circle" [theme]="{ width: '38px', height: '38px', 'margin-top': '14px' }"></ngx-skeleton-loader>
@@ -55,6 +55,5 @@
             <div id="map" class="rounded-5"></div>
         </div>
     </div>
+    <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>
