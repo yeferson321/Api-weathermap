@@ -30,10 +30,10 @@ export class SectionComponent implements OnInit {
     this.map = new Map('map');
 
     /* Adding a tile layer to the map. */
-    tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       minZoom: 4,
       attribution:
-        '&copy; <a href="http://openstreetmap.org">Openstreetmap</a>',
+        '&copy; <a href="https://openstreetmap.org">Openstreetmap</a>',
     }).addTo(this.map);
 
     /* Calling the onChange method with the default values. */
