@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WeatherService } from 'src/app/services/weather.service';
 import { ClassGeocoding, InterfaceGeocoding } from 'src/app/models';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -33,10 +34,9 @@ export class SearchComponent implements OnInit {
   }
 
   /**
-   * The weatherservice function of the weather service is called, passing in the city name from the
-   * form. If the form is valid, we're subscribing to the observable returned by the searchWeather
-   * function. If the observable returns data, we're calling the validateSearch function. If the
-   * observable returns an error, we're setting the error variable to the error message
+   * The onSubmit function is called when the form is submitted. If the form is valid, the
+   * weatherservice.getDirectGeocoding function is called and the data from the observable is passed into
+   * the validateSearch function. If there is an error, the error variable is set to the error message
    */
   onSubmit(): void {
     if (this.form.valid) {
@@ -54,8 +54,7 @@ export class SearchComponent implements OnInit {
   }
 
   /**
-   * If the search result is not empty, show the list of results and hide the "no results found" message.
-   * If the search result is empty, hide the list of results and show the "no results found" message
+   * The validateSearch function validates the data returned by the geocoding service
    */
   validateSearch(data: ClassGeocoding[]): void {
     if (data.length) {
@@ -74,7 +73,7 @@ export class SearchComponent implements OnInit {
   }
 
   /**
-   * It takes a number, converts it to a string, and returns the string with only 3 decimal places
+   * The validateSearch function it takes a number, converts it to a string, and returns the string with only 3 decimal places
    */
   limitDecimals(data: number) {
     /* It takes a number, converts it to a string, and returns the string with only 3 decimal places */
@@ -82,7 +81,7 @@ export class SearchComponent implements OnInit {
   }
 
   /**
-   * "When the user clicks outside of the list, hide the list."
+   * The hideList function hide the list when the user clicks outside of the list
    */
   hideList(): void {
     /* Set the display style of the list to none. */
@@ -90,21 +89,21 @@ export class SearchComponent implements OnInit {
   }
 
   /**
-   * It takes the data from the search input and emits it to the parent component
+   * The selectElement function it takes the data from the search input and emits it to the parent component
    */
   selectElement(data: InterfaceGeocoding): void {
     /* It takes the data from the search input and emits it to the parent component */
     this.searchWeather.emit(data);
     /* Set the display style of the list to none. */
     this.displayNone()
+    console.log(process.env['DB_HOST']);
   }
 
   /**
-   * "Set the display style of the list to none."
+   * The displayNone function set the display style of the list to none.
    */
   displayNone(): void {
     /* It sets the display style of the list to none. */
     this.renderer.setStyle(this.list.nativeElement, 'display', 'none');
   }
-
 }

@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## About
 
-This project is part of my personal portfolio. Access current weather data for any location on Earth, including over 200,000 cities! We collect and process weather data from various sources, such as global and local weather models, satellites, radars, and a vast network of weather stations. Data is available in JSON, XML, or HTML format. Api: (https://openweathermap.org)
+This project is part of my `personal portfolio`. Access current weather data for any location on Earth, including over 200,000 cities! We collect and process weather data from various sources, such as global and local weather models, satellites, radars, and a vast network of weather stations. Data is available in JSON, XML, or HTML format. Api: (https://openweathermap.org)
 
 ## Get geolocation by browser
 
@@ -25,6 +25,17 @@ geolocation(){
 ```
 marker([data.lat, data.lon]).addTo(this.map).bindPopup(data.city);
 ```
+
+## Your unique API key
+
+You can always find it on your account page under the (https://home.openweathermap.org/api_keys)
+
+## Temperature is available in Fahrenheit, Celsius and Kelvin units.
+
+For temperature in Fahrenheit use units=imperial
+For temperature in Celsius use units=metric
+Temperature in Kelvin is used by default, no need to use units parameter in API call
+List of all API parameters with units (openweathermap.org/weather-data)
 
 ## Development server
 

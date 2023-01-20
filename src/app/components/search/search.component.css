@@ -51,9 +51,9 @@
   }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .container {
-    margin-right: 9rem !important;
-    margin-left: 9rem !important;
+    padding-right: 9rem !important;
+    padding-left: 9rem !important;
   }
 }

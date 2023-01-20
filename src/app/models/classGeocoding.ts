@@ -1,14 +1,14 @@
-/* It's a class that has a constructor that takes in 5 parameters, and a getter that returns a string. */
+/* It's a class that has a constructor that takes in 5 parameters. */
 export class ClassGeocoding {
 
-  static geocodingFromJSON(obj: any){
+  static geocodingFromJSON(obj: any) {
     return new ClassGeocoding(
-        obj['country'],
-        obj['lat'],
-        obj['lon'], 
-        obj['name'],
-        obj['state'],
-    )
+      obj['country'],
+      obj['lat'],
+      obj['lon'],
+      obj['name'],
+      obj['state']
+    );
   }
 
   constructor(
