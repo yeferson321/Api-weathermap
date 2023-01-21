@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Map, tileLayer } from 'leaflet';
+import { Map, tileLayer, Bounds } from 'leaflet';
 import { WeatherService } from 'src/app/services/weather.service';
 import { InterfaceGeocoding } from 'src/app/models';
 
@@ -31,8 +31,11 @@ export class SectionComponent implements OnInit {
 
     /* Adding a tile layer to the map. */
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      minZoom: 4,
-      tileSize: 512,
+      minZoom: 5,
+      maxZoom: 13,
+      "detectRetina" : false, 
+      "zoomOffset" : 2, 
+      "tileSize" : 256 / Math.pow(2, 2),
       attribution:
         '&copy; <a href="https://openstreetmap.org">Openstreetmap</a>',
     }).addTo(this.map);
@@ -58,6 +61,6 @@ export class SectionComponent implements OnInit {
     });
 
     /* Setting the view of the map to the latitude and longitude of the city. */
-    this.map.setView([data.lat, data.lon], 8);
+    this.map.setView([data.lat, data.lon], 12);
   }
 }
