@@ -20,7 +20,7 @@
             <div class="card border-0 bg-transparent" *ngIf="result">
                 <div class="card-body py-0">
                     <div class="d-flex align-items-center">
-                        <img rel="preload" as="image" src="https://openweathermap.org/img/wn/{{ result.weather[0].icon }}@4x.png" 
+                        <img loading="eager" src="https://openweathermap.org/img/wn/{{ result.weather[0].icon }}@4x.png" 
                             alt="Weather image" title="Weather image" width="60px" height="60px"/>
                         <h1 class="mb-0 text temp">
                             {{ result.main.temp | number : "1.0-0" }}°
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="w-100">
-            <div id="map" rel="preload" as="image"></div>
+            <div id="map" loading="eager"></div>
         </div>
     </div>
     <app-footer></app-footer>
