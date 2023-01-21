@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Map, tileLayer, Bounds } from 'leaflet';
+import { Map, tileLayer, Control } from 'leaflet';
 import { WeatherService } from 'src/app/services/weather.service';
 import { InterfaceGeocoding } from 'src/app/models';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-section',
@@ -33,8 +34,6 @@ export class SectionComponent implements OnInit {
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       minZoom: 5,
       maxZoom: 17,
-      zoomOffset : 2, 
-      tileSize : 256 / 4,
       attribution:
         '&copy; <a href="https://openstreetmap.org">Openstreetmap</a>',
     }).addTo(this.map);
