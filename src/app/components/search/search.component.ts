@@ -44,7 +44,6 @@ export class SearchComponent implements OnInit {
         /* Calling the validateSearch function and passing in the data from the observable. */
         next: (data) => {
           this.validateSearch(data);
-          console.log(data)
         },
         /* Setting the error variable to the error message */
         error: (err) => {

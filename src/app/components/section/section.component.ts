@@ -34,7 +34,7 @@ export class SectionComponent implements OnInit {
       minZoom: 5,
       maxZoom: 17,
       zoomOffset : 2, 
-      tileSize : 256 / Math.pow(2, 2),
+      tileSize : 256 / 4,
       attribution:
         '&copy; <a href="https://openstreetmap.org">Openstreetmap</a>',
     }).addTo(this.map);
