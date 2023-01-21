@@ -21,7 +21,7 @@
                 <div class="card-body py-0">
                     <div class="d-flex align-items-center">
                         <img src="https://openweathermap.org/img/wn/{{ result.weather[0].icon }}@4x.png" 
-                            alt="Weather image" title="Weather image" width="60px" height="60px" />
+                            alt="Weather image" title="Weather image" width="60px" height="60px" preload/>
                         <h1 class="mb-0 text temp">
                             {{ result.main.temp | number : "1.0-0" }}°
                         </h1>
