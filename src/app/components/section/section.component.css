@@ -11,6 +11,10 @@
   width: max-content;
 }
 
+.card-title{
+  font-size:x-large
+}
+
 .text {
   font-family: "Outfit", sans-serif;
 }
