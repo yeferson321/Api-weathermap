@@ -28,6 +28,7 @@ marker([data.lat, data.lon]).addTo(this.map).bindPopup(data.city);
 
 ## Your unique API key
 
+Create a .env file and add your API_KEY.
 You can always find it on your account page under the (https://home.openweathermap.org/api_keys)
 
 ## Temperature is available in Fahrenheit, Celsius and Kelvin units.

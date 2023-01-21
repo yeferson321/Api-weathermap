@@ -31,22 +31,22 @@
                         <i class="bi bi-geo-alt"></i>
                     </p>
                     <p class="card-text text mb-1"> 
-                        Sensación térmica {{ result.main.temp | number : "1.0-0" }}°
+                        Thermal sensation {{ result.main.temp | number : "1.0-0" }}°
                         {{ result.weather[0].description }}
                     </p>
                     <p class="card-text text mb-1">
-                        Visibilidad: 10.0 km {{ result.wind.speed }} m/s
+                        Visibility: 10.0 km {{ result.wind.speed }} m/s
                     </p>
                     <p class="card-text text mb-1">
-                        Humedad: {{ result.main.humidity }}% Presión:
+                        Humidity: {{ result.main.humidity }}% Presión:
                         {{ result.main.pressure }}%
                     </p>
                     <p class="card-text text mb-1">
-                        Temperatura maxima: {{ result.main.temp_max }}°
+                        Max temperature: {{ result.main.temp_max }}°
                         <i class="bi bi-arrow-up-short"></i>
                     </p>
                     <p class="card-text text">
-                        Temperatura minima: {{ result.main.temp_min }}°
+                        Min temperature: {{ result.main.temp_min }}°
                         <i class="bi bi-arrow-down-short"></i>
                     </p>
                 </div>

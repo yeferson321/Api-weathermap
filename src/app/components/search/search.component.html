@@ -3,7 +3,7 @@
         <form class="form" role="search" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="d-flex flex-column">
                 <div class="input-group">
-                    <input type="text" class="form-control" (keydown)="hideList()" placeholder="Busca una ciudad"
+                    <input type="text" class="form-control" (keydown)="hideList()" placeholder="Search for a city"
                         formControlName="city" required>
                     <ul #list class="list-group">
                         <li class="list-group-item d-flex border align-items-center justify-content-between border-0"
@@ -14,13 +14,13 @@
                             <span>{{limitDecimals(data.lon)}}</span>
                         </li>
                     </ul>
-                    <button class="btn btn-outline-dark" type="submit" id="button-addon2">Buscar</button>
+                    <button class="btn btn-outline-dark" type="submit" id="button-addon2">Search</button>
                 </div>
                 <div #nofound class="text-center no-found d-flex align-items-center justify-content-center">
-                    No encontrado. Ponga el nombre de la ciudad
+                    Not found, please enter the name of a city.
                 </div>
             </div>
         </form>
-        <a class="navbar-brand fw-normal me-0" href="/">Datos meteorológicos actuales</a>
+        <a class="navbar-brand fw-normal me-0" href="/">Current weather data</a>
     </div>
 </nav>

@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Map, tileLayer, Control } from 'leaflet';
+import { Map, tileLayer } from 'leaflet';
 import { WeatherService } from 'src/app/services/weather.service';
 import { InterfaceGeocoding } from 'src/app/models';
-import * as L from 'leaflet';
 
 @Component({
   selector: 'app-section',
