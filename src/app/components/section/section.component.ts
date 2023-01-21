@@ -32,10 +32,9 @@ export class SectionComponent implements OnInit {
     /* Adding a tile layer to the map. */
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       minZoom: 5,
-      maxZoom: 13,
-      "detectRetina" : false, 
-      "zoomOffset" : 2, 
-      "tileSize" : 256 / Math.pow(2, 2),
+      maxZoom: 17,
+      zoomOffset : 2, 
+      tileSize : 256 / Math.pow(2, 2),
       attribution:
         '&copy; <a href="https://openstreetmap.org">Openstreetmap</a>',
     }).addTo(this.map);
