@@ -44,6 +44,7 @@ export class SearchComponent implements OnInit {
         /* Calling the validateSearch function and passing in the data from the observable. */
         next: (data) => {
           this.validateSearch(data);
+          console.log(data)
         },
         /* Setting the error variable to the error message */
         error: (err) => {
@@ -96,7 +97,6 @@ export class SearchComponent implements OnInit {
     this.searchWeather.emit(data);
     /* Set the display style of the list to none. */
     this.displayNone()
-    console.log(process.env['DB_HOST']);
   }
 
   /**

@@ -9,7 +9,7 @@
                         <li class="list-group-item d-flex border align-items-center justify-content-between border-0"
                             *ngFor="let data of result" (click)="selectElement(data)">
                             <span>{{data.nameCountry}}</span>
-                            <img src="http://openweathermap.org/images/flags/{{ data.country | lowercase }}.png">
+                            <img src="https://openweathermap.org/images/flags/{{ data.country | lowercase }}.png">
                             <span>{{limitDecimals(data.lat)}}</span>
                             <span>{{limitDecimals(data.lon)}}</span>
                         </li>
