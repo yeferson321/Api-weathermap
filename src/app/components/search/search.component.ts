@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WeatherService } from 'src/app/services/weather.service';
 import { ClassGeocoding, InterfaceGeocoding } from 'src/app/models';
 
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -23,10 +22,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private weatherservice: WeatherService, private renderer: Renderer2) { }
 
-  /**
-   * The function creates a form group with a single form control called city. The form control is
-   * required
-   */
+  /* The function creates a form group with a single form control called city. The form control is required */
   ngOnInit(): void {
     this.form = this.fb.group({
       city: ['', Validators.required],
@@ -38,7 +34,7 @@ export class SearchComponent implements OnInit {
    * weatherservice.getDirectGeocoding function is called and the data from the observable is passed into
    * the validateSearch function. If there is an error, the error variable is set to the error message
    */
-  onSubmit(): void {
+  onSubmit = (): void => {
     if (this.form.valid) {
       this.weatherservice.getDirectGeocoding(this.form.value.city).subscribe({
         /* Calling the validateSearch function and passing in the data from the observable. */
@@ -53,10 +49,8 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  /**
-   * The validateSearch function validates the data returned by the geocoding service
-   */
-  validateSearch(data: ClassGeocoding[]): void {
+  /* The validateSearch function validates the data returned by the geocoding service */
+  validateSearch = (data: ClassGeocoding[]): void => {
     if (data.length) {
       /* Assigning the data to the result variable. */
       this.result = data;
@@ -72,37 +66,21 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  /**
-   * The validateSearch function it takes a number, converts it to a string, and returns the string with only 3 decimal places
-   */
-  limitDecimals(data: number) {
-    /* It takes a number, converts it to a string, and returns the string with only 3 decimal places */
-    return data.toFixed(3);
-  }
+  /* The validateSearch function it takes a number, converts it to a string, and returns the string with only 3 decimal places */
+  limitDecimals = (data: number): string => data.toFixed(3);
 
-  /**
-   * The hideList function hide the list when the user clicks outside of the list
-   */
-  hideList(): void {
-    /* Set the display style of the list to none. */
-    this.displayNone()
-  }
+  /* The hideList function hide the list when the user clicks outside of the list */
+  hideList = (): void => this.displayNone()
 
-  /**
-   * The selectElement function it takes the data from the search input and emits it to the parent component
-   */
-  selectElement(data: InterfaceGeocoding): void {
+  /* The selectElement function it takes the data from the search input and emits it to the parent component */
+  selectElement = (data: InterfaceGeocoding): void => {
     /* It takes the data from the search input and emits it to the parent component */
     this.searchWeather.emit(data);
     /* Set the display style of the list to none. */
     this.displayNone()
   }
 
-  /**
-   * The displayNone function set the display style of the list to none.
-   */
-  displayNone(): void {
-    /* It sets the display style of the list to none. */
-    this.renderer.setStyle(this.list.nativeElement, 'display', 'none');
-  }
+  /* The displayNone function set the display style of the list to none. */
+  displayNone = (): void => this.renderer.setStyle(this.list.nativeElement, 'display', 'none');
+  
 }

@@ -22,9 +22,7 @@ export class SectionComponent implements OnInit {
 
   constructor(private weatherservice: WeatherService) { }
 
-  /**
-   * We're creating a map with a tile layer and adding it to the map div
-   */
+  /* We're creating a map with a tile layer and adding it to the map div */
   ngOnInit(): void {
     /* Creating a map with a marker on it. */
     this.map = new Map('map');
@@ -45,7 +43,7 @@ export class SectionComponent implements OnInit {
    * The function takes the latitude and longitude of the city and passes it to the weather service to
    * get the weather data
    */
-  onChange(data: InterfaceGeocoding): void {
+  onChange = (data: InterfaceGeocoding): void => {
     this.weatherservice.getCurrentWeather(data.lat, data.lon).subscribe({
       /* It's setting the result to the data that we get from the API. */
       next: (data) => {
