@@ -40,7 +40,7 @@ List of all API parameters with units (openweathermap.org/weather-data)
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server or run `ng serve --configuration output` for a prod server with virtual `output environment`. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -48,7 +48,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` to build the project or `ng build --watch --configuration output` to build the project with `output environment` custom variables. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
