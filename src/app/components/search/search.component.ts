@@ -42,8 +42,8 @@ export class SearchComponent implements OnInit {
           this.validateSearch(data);
         },
         /* Setting the error variable to the error message */
-        error: (err) => {
-          this.error = err.error.message;
+        error: (error) => {
+          this.error = error.message;
         }
       });
     }
@@ -68,9 +68,6 @@ export class SearchComponent implements OnInit {
 
   /* The validateSearch function it takes a number, converts it to a string, and returns the string with only 3 decimal places */
   limitDecimals = (data: number): string => data.toFixed(3);
-
-  /* The hideList function hide the list when the user clicks outside of the list */
-  hideList = (): void => this.displayNone()
 
   /* The selectElement function it takes the data from the search input and emits it to the parent component */
   selectElement = (data: InterfaceGeocoding): void => {

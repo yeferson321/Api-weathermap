@@ -4,25 +4,28 @@
 <div class="section d-flex align-items-center justify-content-center flex-column">
     <div class="container d-flex align-items-center justify-content-center gap-5">
         <div class="weathermap">
-            <div class="card border-0 bg-transparent" *ngIf="!result">
-                <div class="card-body py-0 d-flex flex-column">
-                    <div class="d-flex align-items-center gap-2">
-                        <ngx-skeleton-loader class="circle" appearance="circle" [theme]="{ width: '38px', height: '38px', 'margin-top': '14px' }"></ngx-skeleton-loader>
-                        <ngx-skeleton-loader [theme]="{ width: '40px', 'border-radius': '5px', height: '15px', 'margin-bottom': '0px' }"></ngx-skeleton-loader>
+            <div class="card border-0 bg-transparent" aria-hidden="true" *ngIf="!result">
+                <div class="card-body py-0">
+                    <div class="placeholder-glow mb-2">
+                        <span class="placeholder rounded-circle circle"
+                            style="width: 32px; height: 32px; margin: 15px"></span>
+                        <span class="placeholder rounded" style="width:40px;"></span>
                     </div>
-                    <ngx-skeleton-loader [theme]="{ width: '185px', 'border-radius': '5px', height: '15px', 'margin-bottom': '12px' }"></ngx-skeleton-loader>
-                    <ngx-skeleton-loader [theme]="{ width: '262px', 'border-radius': '5px', height: '15px', 'margin-bottom': '7px' }"></ngx-skeleton-loader>
-                    <ngx-skeleton-loader [theme]="{ width: '200px', 'border-radius': '5px', height: '15px', 'margin-bottom': '7px' }"></ngx-skeleton-loader>
-                    <ngx-skeleton-loader [theme]="{ width: '215px', 'border-radius': '5px', height: '15px', 'margin-bottom': '7px' }"></ngx-skeleton-loader>
-                    <ngx-skeleton-loader [theme]="{ width: '210px', 'border-radius': '5px', height: '15px', 'margin-bottom': '7px' }"></ngx-skeleton-loader>
-                    <ngx-skeleton-loader [theme]="{ width: '210px', 'border-radius': '5px', height: '15px', 'margin-bottom': '0px' }"></ngx-skeleton-loader>
+                    <p class="card-text placeholder-glow d-flex flex-column">
+                        <span class="placeholder rounded mb-3" style="width: 185px; height: 26px;"></span>
+                        <span class="placeholder placeholder-lg rounded mb-2" style="width: 250px;"></span>
+                        <span class="placeholder placeholder-lg rounded mb-2" style="width: 200px;"></span>
+                        <span class="placeholder placeholder-lg rounded mb-2" style="width: 215px;"></span>
+                        <span class="placeholder placeholder-lg rounded mb-2" style="width: 210px;"></span>
+                        <span class="placeholder placeholder-lg rounded" style="width: 210px;"></span>
+                    </p>
                 </div>
             </div>
             <div class="card border-0 bg-transparent" *ngIf="result">
                 <div class="card-body py-0">
                     <div class="d-flex align-items-center">
-                        <img loading="eager" src="https://openweathermap.org/img/wn/{{ result.weather[0].icon }}@4x.png" 
-                            alt="Weather image" title="Weather image" width="60px" height="60px"/>
+                        <img loading="eager" src="https://openweathermap.org/img/wn/{{ result.weather[0].icon }}@4x.png"
+                            alt="Weather image" title="Weather image" width="60px" height="60px" />
                         <h1 class="mb-0 text temp">
                             {{ result.main.temp | number : "1.0-0" }}°
                         </h1>
@@ -31,7 +34,7 @@
                         {{ result.name }}, {{ result.sys.country }}
                         <i class="bi bi-geo-alt"></i>
                     </p>
-                    <p class="card-text text mb-1"> 
+                    <p class="card-text text mb-1">
                         Thermal sensation {{ result.main.temp | number : "1.0-0" }}°
                         {{ result.weather[0].description }}
                     </p>

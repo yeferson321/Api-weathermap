@@ -3,7 +3,7 @@
         <form class="form" role="search" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="d-flex flex-column">
                 <div class="input-group">
-                    <input type="text" class="form-control" (keydown)="hideList()" placeholder="Search for a city"
+                    <input type="text" class="form-control" (keydown)="displayNone()" placeholder="Search for a city"
                         formControlName="city" required>
                     <ul #list class="list-group">
                         <li class="list-group-item d-flex border align-items-center justify-content-between border-0"
@@ -21,6 +21,6 @@
                 </div>
             </div>
         </form>
-        <a class="navbar-brand fw-normal me-0" href="/">Current weather data</a>
+        <a class="navbar-brand fw-normal me-0" routerLink="/">Current weather data</a>
     </div>
 </nav>

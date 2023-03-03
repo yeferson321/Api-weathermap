@@ -22,8 +22,16 @@ export class SectionComponent implements OnInit {
 
   constructor(private weatherservice: WeatherService) { }
 
-  /* We're creating a map with a tile layer and adding it to the map div */
   ngOnInit(): void {
+    /* Calling the createMap method. */
+    this.createMap();
+
+    /* Calling the onChange method. */
+    this.onChange({ country: this.country, lat: this.latitude, lon: this.longitude, name: '', state: '' });
+  }
+
+  /* We create a new map, add a tile layer to it, and then add the map to the DOM. */
+  createMap(): void {
     /* Creating a map with a marker on it. */
     this.map = new Map('map');
 
@@ -34,9 +42,6 @@ export class SectionComponent implements OnInit {
       attribution:
         '&copy; <a href="https://openstreetmap.org">Openstreetmap</a>',
     }).addTo(this.map);
-
-    /* Calling the onChange method with the default values. */
-    this.onChange({ country: this.country, lat: this.latitude, lon: this.longitude, name: '', state: '' });
   }
 
   /**
@@ -49,9 +54,9 @@ export class SectionComponent implements OnInit {
       next: (data) => {
         this.result = data;
       },
-      error: (err) => {
+      error: (error) => {
         /* It's setting the error message to the error message that we get from the API. */
-        this.error = err.error.message
+        this.error = error.message
       },
     });
 
