@@ -1,13 +1,15 @@
 /* It's a class that has a constructor that takes in 5 parameters. */
+import { InterfaceGeocoding} from '../models';
+
 export class ClassGeocoding {
 
-  static geocodingFromJSON(obj: any) {
+  static geocodingFromJSON(obj: InterfaceGeocoding) {
     return new ClassGeocoding(
-      obj['country'],
-      obj['lat'],
-      obj['lon'],
-      obj['name'],
-      obj['state']
+      obj.country,
+      obj.lat,
+      obj.lon,
+      obj.name,
+      obj.state
     );
   }
 
