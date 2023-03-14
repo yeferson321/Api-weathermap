@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Map, tileLayer } from 'leaflet';
 import { WeatherService } from 'src/app/services/weather.service';
-import { InterfaceGeocoding } from 'src/app/models';
+import { InterfaceGeocoding, InterfaceWeather } from 'src/app/models';
 
 @Component({
   selector: 'app-section',
@@ -17,7 +17,7 @@ export class SectionComponent implements OnInit {
   country: string = 'Paris, FR';
   /* Setting the default values for the map, result and error. */
   map!: Map;
-  result: any;
+  result!: InterfaceWeather;
   error: string = ""
 
   constructor(private weatherservice: WeatherService) { }

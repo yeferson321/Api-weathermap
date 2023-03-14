@@ -28,7 +28,7 @@ export class WeatherService {
 
     /* This is a request to the OpenWeatherMap API, passing latitude and longitude as a query
     parameter. */
-    return this.http.get<InterfaceWeather[]>(`${environment.uri}`, config);
+    return this.http.get<InterfaceWeather>(`${environment.uri}`, config);
   }
 
   /**
