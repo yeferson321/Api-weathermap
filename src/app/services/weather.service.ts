@@ -10,13 +10,10 @@ import { HttpConfig, InterfaceGeocoding, InterfaceWeather, ClassGeocoding } from
 export class WeatherService {
   constructor(private http: HttpClient) { }
 
-  /**
-   * This function is used to make a request to the OpenWeatherMap API, passing latitude and longitude
-   * as a query parameter
-   */
+  // This function is used to make a request to the OpenWeatherMap API, passing latitude and longitude as a query parameter.
   getCurrentWeather(lat: number, lon: number) {
 
-    /* Setting the query parameters for the request. */
+    // Setting the query parameters for the request.
     const config: HttpConfig = {
       responseType: 'json',
       params: new HttpParams()
@@ -26,18 +23,14 @@ export class WeatherService {
         .set('units', `${environment.units}`),
     };
 
-    /* This is a request to the OpenWeatherMap API, passing latitude and longitude as a query
-    parameter. */
+    // This is a request to the OpenWeatherMap API, passing latitude and longitude as a query parameter.
     return this.http.get<InterfaceWeather>(`${environment.uri}`, config);
   }
 
-  /**
-   * This function is used to make a request to the OpenWeatherMap API, passing in the city name
-   * as a query parameter
-   */
+  // This function is used to make a request to the OpenWeatherMap API, passing in the city name as a query parameter
   getDirectGeocoding(city: string) {
 
-    /* Setting the query parameters for the request. */
+    // Setting the query parameters for the request.
     const config: HttpConfig = {
       responseType: 'json',
       params: new HttpParams()
@@ -46,9 +39,9 @@ export class WeatherService {
         .set('appid', `${environment.appid}`),
     };
 
-    /* A request to the OpenWeatherMap API, passing in the city name as a query parameter. */
+    // A request to the OpenWeatherMap API, passing in the city name as a query parameter.
     return this.http.get<InterfaceGeocoding[]>(`${environment.uriSearch}`, config)
-      /* A pipe that is used to transform the response from the API. */
+      // A pipe that is used to transform the response from the API.
       .pipe(
         map((resp: InterfaceGeocoding[]) => {
           return resp.map(geocoding => ClassGeocoding.geocodingFromJSON(geocoding))

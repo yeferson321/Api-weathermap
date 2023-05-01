@@ -1,3 +1,4 @@
+/* Defining an interface. */
 export interface InterfaceWeather {
   coord:      Coord;
   weather:    Weather[];

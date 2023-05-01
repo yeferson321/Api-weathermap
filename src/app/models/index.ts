@@ -1,4 +1,4 @@
-/* Exporting the interfaces and classes from the files. */
+// Exporting the interfaces and classes from the files.
 export { InterfaceWeather } from "./interfaceWeather";
 export { InterfaceGeocoding } from "./interfaceGeocoding";
 export { HttpConfig } from "./interfaceHttpConfig";

@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## About
 
-This project is part of my `personal portfolio`. Access current weather data for any location on Earth, including over 200,000 cities! We collect and process weather data from various sources, such as global and local weather models, satellites, radars, and a vast network of weather stations. Data is available in JSON, XML, or HTML format. Api: (https://openweathermap.org)
+Website: (https://clooudbay.netlify.app/)
+
+This project is part of my `personal portfolio`. Access current weather data for any location on Earth, including over 200,000 cities! We collect and process weather data from various sources, such as global and local weather models, satellites, radars, and a vast network of weather stations. Data is available in JSON, XML, or HTML format. Api: (https://openweathermap.org/current)
 
 ## Get geolocation by browser
 
