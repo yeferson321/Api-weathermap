@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SectionComponent } from './components/section/section.component';
+import { HomeComponent } from './components/home/home.component';
 
 // This is the routing configuration for the application.
 const routes: Routes = [
-  { path: '', component: SectionComponent },
+  { path: '', component: HomeComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 

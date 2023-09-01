@@ -1,64 +1,58 @@
-<app-navbar></app-navbar>
-<app-search (searchWeather)="onChange($event)"></app-search>
-
-<section class="section d-flex align-items-center justify-content-center flex-column">
-    <div class="container d-flex align-items-center justify-content-center gap-5">
-        <div class="weathermap">
-            <div class="card border-0 bg-transparent" aria-hidden="true" *ngIf="!result">
-                <div class="card-body py-0">
-                    <div class="placeholder-glow mb-2">
-                        <span class="placeholder rounded-circle circle"
-                            style="width: 32px; height: 32px; margin: 15px"></span>
-                        <span class="placeholder rounded" style="width:40px;"></span>
-                    </div>
-                    <p class="card-text placeholder-glow d-flex flex-column">
-                        <span class="placeholder rounded mb-3" style="width: 185px; height: 26px;"></span>
-                        <span class="placeholder placeholder-lg rounded mb-2" style="width: 250px;"></span>
-                        <span class="placeholder placeholder-lg rounded mb-2" style="width: 200px;"></span>
-                        <span class="placeholder placeholder-lg rounded mb-2" style="width: 215px;"></span>
-                        <span class="placeholder placeholder-lg rounded mb-2" style="width: 210px;"></span>
-                        <span class="placeholder placeholder-lg rounded" style="width: 210px;"></span>
-                    </p>
+<section class="container d-flex align-items-center justify-content-center gap-5">
+    <div class="weathermap">
+        <div class="card border-0 bg-transparent" aria-hidden="true" *ngIf="!result">
+            <div class="card-body py-0">
+                <div class="placeholder-glow mb-2">
+                    <span class="placeholder rounded-circle circle"
+                        style="width: 32px; height: 32px; margin: 15px"></span>
+                    <span class="placeholder rounded" style="width:40px;"></span>
                 </div>
-            </div>
-            <div class="card border-0 bg-transparent" *ngIf="result">
-                <div class="card-body py-0">
-                    <div class="d-flex align-items-center">
-                        <img loading="eager" src="https://openweathermap.org/img/wn/{{ result.weather[0].icon }}@4x.png"
-                            alt="Weather image" title="Weather image" width="60px" height="60px" />
-                        <h1 class="mb-0 text temp">
-                            {{ result.main.temp | number : "1.0-0" }}°
-                        </h1>
-                    </div>
-                    <p class="card-title text fw-semibold">
-                        {{ result.name }}, {{ result.sys.country }}
-                        <i class="bi bi-geo-alt"></i>
-                    </p>
-                    <p class="card-text text mb-1">
-                        Thermal sensation {{ result.main.temp | number : "1.0-0" }}°
-                        {{ result.weather[0].description }}
-                    </p>
-                    <p class="card-text text mb-1">
-                        Visibility: 10.0 km {{ result.wind.speed }} m/s
-                    </p>
-                    <p class="card-text text mb-1">
-                        Humidity: {{ result.main.humidity }}% Presión:
-                        {{ result.main.pressure }}%
-                    </p>
-                    <p class="card-text text mb-1">
-                        Max temperature: {{ result.main.temp_max }}°
-                        <i class="bi bi-arrow-up-short"></i>
-                    </p>
-                    <p class="card-text text">
-                        Min temperature: {{ result.main.temp_min }}°
-                        <i class="bi bi-arrow-down-short"></i>
-                    </p>
-                </div>
+                <p class="card-text placeholder-glow d-flex flex-column">
+                    <span class="placeholder rounded mb-3" style="width: 185px; height: 26px;"></span>
+                    <span class="placeholder placeholder-lg rounded mb-2" style="width: 250px;"></span>
+                    <span class="placeholder placeholder-lg rounded mb-2" style="width: 200px;"></span>
+                    <span class="placeholder placeholder-lg rounded mb-2" style="width: 215px;"></span>
+                    <span class="placeholder placeholder-lg rounded mb-2" style="width: 210px;"></span>
+                    <span class="placeholder placeholder-lg rounded" style="width: 210px;"></span>
+                </p>
             </div>
         </div>
-        <div class="w-100">
-            <div id="map" class="rounded-4" loading="eager"></div>
+        <div class="card border-0 bg-transparent" *ngIf="result">
+            <div class="card-body py-0">
+                <div class="d-flex align-items-center">
+                    <img loading="eager" src="https://openweathermap.org/img/wn/{{ result.weather[0].icon }}@4x.png"
+                        alt="Weather image" title="Weather image" width="60px" height="60px" />
+                    <h1 class="mb-0 text temp">
+                        {{ result.main.temp | number : "1.0-0" }}°
+                    </h1>
+                </div>
+                <p class="card-title text fw-semibold">
+                    {{ result.name }}, {{ result.sys.country }}
+                    <i class="bi bi-geo-alt"></i>
+                </p>
+                <p class="card-text text mb-1">
+                    Thermal sensation {{ result.main.temp | number : "1.0-0" }}°
+                    {{ result.weather[0].description }}
+                </p>
+                <p class="card-text text mb-1">
+                    Visibility: 10.0 km {{ result.wind.speed }} m/s
+                </p>
+                <p class="card-text text mb-1">
+                    Humidity: {{ result.main.humidity }}% Presión:
+                    {{ result.main.pressure }}%
+                </p>
+                <p class="card-text text mb-1">
+                    Max temperature: {{ result.main.temp_max }}°
+                    <i class="bi bi-arrow-up-short"></i>
+                </p>
+                <p class="card-text text">
+                    Min temperature: {{ result.main.temp_min }}°
+                    <i class="bi bi-arrow-down-short"></i>
+                </p>
+            </div>
         </div>
     </div>
-    <app-footer></app-footer>
+    <div class="w-100">
+        <div id="map" class="rounded-4" loading="eager"></div>
+    </div>
 </section>

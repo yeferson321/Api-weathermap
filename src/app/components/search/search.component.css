@@ -30,6 +30,10 @@
   background-color: #f5f5f5;
 }
 
+.form-control{
+  border-radius: 1rem;
+}
+
 .navbar-brand {
   font-family: "Outfit", sans-serif;
   pointer-events: none;
